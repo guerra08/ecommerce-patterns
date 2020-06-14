@@ -2,9 +2,9 @@ import ISubject from "./interfaces/ISubject";
 import IObserver from "./interfaces/IObserver";
 
 export default class Item implements ISubject {
-    public name: string;
-    public manufacturer: string;
-    public value: number;
+    private name: string;
+    private manufacturer: string;
+    private value: number;
     private observers: IObserver[] = [];
 
     constructor(n: string, m: string, val: number) {
@@ -38,5 +38,17 @@ export default class Item implements ISubject {
 
     public selectItem(amnt: number): void {
         this.notify(amnt);
+    }
+
+    public getName(): string {
+        return this.name;
+    }
+
+    public getManufacturer(): string {
+        return this.manufacturer;
+    }
+
+    public getValue(): number {
+        return this.value;
     }
 }
