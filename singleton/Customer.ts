@@ -16,8 +16,11 @@ class Customer {
 }
 
 const customer = new Customer("Bruno Guerra");
-const headphone = new Item("Headphone", "Sony", 500);
+const headphone = new Item("Headphone", "Sony", 350);
+const cpu = new Item("Ryzen 3800x", "AMD", 800);
 
-customer.getCart().addItem(headphone, 1);
+customer.getCart().addItem(headphone, 2);
+customer.getCart().addItem(cpu, 1);
 
 console.log(customer.getCart().cartToString());
+console.log(customer.getCart().totalPriceString());

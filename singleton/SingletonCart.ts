@@ -32,8 +32,15 @@ export default class SingletonCart {
     public cartToString(): string {
         let result = "";
         this.items.forEach((v, k) => {
-            result += `${k.getName()}, ${v}un`;
+            result += `${k.getName()}, ${v}un\n`;
         });
         return result;
+    }
+
+    public totalPriceString(): string {
+        return `Total cost: ${this.getTotalCost().toLocaleString("en-US", {
+            style: "currency",
+            currency: "USD",
+        })}`;
     }
 }
