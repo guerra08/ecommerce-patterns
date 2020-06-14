@@ -1,4 +1,5 @@
 import Item from '../model/Item';
+import Cart from '../model/Cart';
 
 export default class ItemRepository {
     private items: Item[] = new Array();
@@ -27,5 +28,9 @@ export default class ItemRepository {
             pos++;
         });
         return itemsString;
+    }
+
+    public attachCart(cart: Cart): void{
+        this.items.forEach((e) => e.attach(cart))
     }
 }
