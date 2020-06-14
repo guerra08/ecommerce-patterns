@@ -6,24 +6,22 @@ export default class Facade {
 
     constructor() {}
 
-    public makePurchase(): void {
+    public async makePurchase() {
         console.log(this.itemRepo.allItemsToString());
-        inquirer
-            .prompt([
-                {
-                    type: 'number',
-                    name: 'item',
-                    message: 'Qual produto você deseja comprar?',
-                },
-                {
-                    type: 'number',
-                    name: 'amnt',
-                    message: 'Quantas unidades?',
-                },
-            ])
-            .then((answ) => {
-                console.log(answ);
-            });
+        const response = await inquirer.prompt([
+            {
+                type: 'number',
+                name: 'item',
+                message: 'Qual produto você deseja comprar?',
+            },
+            {
+                type: 'number',
+                name: 'amnt',
+                message: 'Quantas unidades?',
+            },
+        ]);
+        const item = this.itemRepo.retrieveItem(response.item);
+        item.selectItem(response.amnt);
     }
 }
 

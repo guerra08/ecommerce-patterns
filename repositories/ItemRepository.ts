@@ -15,7 +15,7 @@ export default class ItemRepository {
         );
     }
 
-    public selectItem(itemPos: number) {
+    public retrieveItem(itemPos: number) {
         return this.items[itemPos];
     }
 
