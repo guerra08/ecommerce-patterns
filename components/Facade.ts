@@ -11,35 +11,16 @@ export default class Facade {
     }
 
     public async startShoppingProcess() {
-        console.log('Seja bem vindo(a)! Selecione um produto: ');
-        this.selectProductsAndUpdateCart();
+        console.log('\nSeja bem vindo(a)!');
+        this.mainLoop();
     }
 
-    private async selectProductsAndUpdateCart() {
-        console.log(this.itemRepo.allItemsToString());
-        const itemResponse = await inquirer.prompt([
-            {
-                type: 'number',
-                name: 'item',
-                message: 'Qual produto você deseja comprar?',
-            },
-            {
-                type: 'number',
-                name: 'amnt',
-                message: 'Quantas unidades?',
-            },
-        ]);
-        const item = this.itemRepo.retrieveItem(itemResponse.item);
-        item.selectItem(itemResponse.amnt);
-        const opResponse = await inquirer.prompt({
-            type: 'number',
-            name: 'op',
-            message:
-                'O que você deseja fazer? [0] - Adicionar outro produto [1] - Gerenciar carrinho [2] - Continuar',
-        });
-        if (opResponse.op === 0) this.selectProductsAndUpdateCart();
-        if (opResponse.op === 2) return;
+    private async mainLoop() {
+        return;
     }
 
-    private async manageCart() {}
+    private manageCart(): void {
+        console.log('Seu carrinho:\n');
+        console.log(this.cart.cartToString());
+    }
 }

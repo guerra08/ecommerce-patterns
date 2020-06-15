@@ -1,21 +1,21 @@
 {
-  "name": "ecommerce-patterns",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "inquirer": "^7.1.0",
-    "typescript": "^3.9.5"
-  },
-  "devDependencies": {
-    "@types/inquirer": "^6.5.0",
-    "ts-node": "^8.10.2",
-    "ts-node-dev": "^1.0.0-pre.47"
-  }
+    "name": "ecommerce-patterns",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "dev": "ts-node-dev --respawn --transpileOnly index.ts"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "inquirer": "^7.1.0",
+        "typescript": "^3.9.5"
+    },
+    "devDependencies": {
+        "@types/inquirer": "^6.5.0",
+        "ts-node": "^8.10.2",
+        "ts-node-dev": "^1.0.0-pre.47"
+    }
 }
