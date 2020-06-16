@@ -30,6 +30,7 @@ export default class Cart implements IObserver {
         let pos = 0;
         this.items.forEach((v, k) => {
             text += `[${pos}]: ${k.getManufacturer()} - ${k.getName()} - ${k.getValue()} - Qtd: ${v}\n`;
+            pos++;
         });
         return text;
     }

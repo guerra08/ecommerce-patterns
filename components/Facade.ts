@@ -1,6 +1,6 @@
 import ItemRepository from '../repositories/ItemRepository';
-import inquirer from 'inquirer';
 import Cart from '../model/Cart';
+import * as rlSync from 'readline-sync';
 
 export default class Facade {
     private itemRepo = new ItemRepository();
@@ -10,17 +10,29 @@ export default class Facade {
         this.itemRepo.attachCart(this.cart);
     }
 
-    public async startShoppingProcess() {
+    public startShoppingProcess() {
         console.log('\nSeja bem vindo(a)!');
         this.mainLoop();
     }
 
-    private async mainLoop() {
-        return;
+    private mainLoop() {
+        this.opManager();
     }
 
-    private manageCart(): void {
+    private manageCart() {
         console.log('Seu carrinho:\n');
         console.log(this.cart.cartToString());
+    }
+
+    private opManager() {
+        const operations = [
+            'Adicionar produto ao carrinho',
+            'Gerenciar carrinho',
+            'Finalizar compra',
+        ];
+        const index = rlSync.keyInSelect(
+            operations,
+            'O que você deseja fazer?'
+        );
     }
 }
