@@ -9,18 +9,18 @@ var Item = /** @class */ (function () {
     }
     Item.prototype.attach = function (observer) {
         if (this.observers.includes(observer)) {
-            return console.log("Already attatched");
+            return console.log('Already attatched');
         }
         this.observers.push(observer);
-        console.log("Subject attatched");
+        console.log('Observer attatched');
     };
     Item.prototype.detach = function (observer) {
         var index = this.observers.indexOf(observer);
         if (index === -1) {
-            return console.log("Subject not attached.");
+            return console.log('Observer not attached.');
         }
         this.observers.splice(index);
-        console.log("Subject detached");
+        console.log('Observer detached');
     };
     Item.prototype.notify = function (amnt) {
         for (var _i = 0, _a = this.observers; _i < _a.length; _i++) {

@@ -1,5 +1,5 @@
-import ISubject from "./interfaces/ISubject";
-import IObserver from "./interfaces/IObserver";
+import ISubject from './interfaces/ISubject';
+import IObserver from './interfaces/IObserver';
 
 export default class Item implements ISubject {
     private name: string;
@@ -15,19 +15,19 @@ export default class Item implements ISubject {
 
     public attach(observer: IObserver): void {
         if (this.observers.includes(observer)) {
-            return console.log("Already attatched");
+            return console.log('Already attatched');
         }
         this.observers.push(observer);
-        console.log("Subject attatched");
+        console.log('Observer attatched');
     }
 
     public detach(observer: IObserver): void {
         const index = this.observers.indexOf(observer);
         if (index === -1) {
-            return console.log("Subject not attached.");
+            return console.log('Observer not attached.');
         }
         this.observers.splice(index);
-        console.log("Subject detached");
+        console.log('Observer detached');
     }
 
     public notify(amnt: number): void {
