@@ -10,9 +10,11 @@ export default class ItemRepository {
 
     private _initItems(): void {
         this.items.push(
-            new Item('Galaxy S20', 'Samsung', 999),
+            new Item('Router', 'TP-Link', 80),
             new Item('Windows 10 Key', 'Microsoft', 20),
-            new Item('Wireless Mouse', 'Logitech', 40)
+            new Item('Wireless Mouse', 'Logitech', 40),
+            new Item('E-book Java', 'Editora X', 15),
+            new Item('SSD', 'Samsung', 100)
         );
     }
 
@@ -30,7 +32,7 @@ export default class ItemRepository {
         return itemsString;
     }
 
-    public attachCart(cart: Cart): void{
-        this.items.forEach((e) => e.attach(cart))
+    public attachCart(cart: Cart): void {
+        this.items.forEach((e) => e.attach(cart));
     }
 }
