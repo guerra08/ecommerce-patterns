@@ -28,10 +28,31 @@ export default class Cart implements IObserver {
     public cartToString(): string {
         let text = '';
         let pos = 0;
+        let totalVal = 0;
         this.items.forEach((v, k) => {
-            text += `[${pos}]: ${k.getManufacturer()} - ${k.getName()} - ${k.getValue()} - Qtd: ${v}\n`;
+            text += `[${pos}]: ${k.getManufacturer()} - ${k.getName()} - $${k.getValue()} - Qtd: ${v} - Total: $${
+                k.getValue() * v
+            }\n`;
             pos++;
+            totalVal += k.getValue() * v;
         });
+        text += `Total: $${totalVal}`;
         return text;
+    }
+
+    public getTotalValue(): number {
+        let total = 0;
+        this.items.forEach((v, k) => {
+            total += k.getValue() * v;
+        });
+        return total;
+    }
+
+    public isCartEmpty(): boolean {
+        return this.items.size === 0;
+    }
+
+    public cleanCart() {
+        this.items = new Map();
     }
 }
