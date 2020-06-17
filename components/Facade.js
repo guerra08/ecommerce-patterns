@@ -53,6 +53,8 @@ var Facade = /** @class */ (function () {
         if (this.cart.isCartEmpty()) {
             return console.log('Seu carrinho está vazio!');
         }
+        console.log('Seu pedido: \n');
+        console.log(this.cart.cartToString());
         var method = ['Cartão', 'Dinheiro'];
         var i = rlSync.keyInSelect(method, 'Como você deseja pagar? ');
         var response = (_a = this.pFactory

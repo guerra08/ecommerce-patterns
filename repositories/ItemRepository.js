@@ -7,7 +7,7 @@ var ItemRepository = /** @class */ (function () {
         this._initItems();
     }
     ItemRepository.prototype._initItems = function () {
-        this.items.push(new Item_1["default"]('Galaxy S20', 'Samsung', 999), new Item_1["default"]('Windows 10 Key', 'Microsoft', 20), new Item_1["default"]('Wireless Mouse', 'Logitech', 40));
+        this.items.push(new Item_1["default"]('Router', 'TP-Link', 80), new Item_1["default"]('Windows 10 Key', 'Microsoft', 20), new Item_1["default"]('Wireless Mouse', 'Logitech', 40), new Item_1["default"]('E-book Java', 'Editora X', 15), new Item_1["default"]('SSD', 'Samsung', 100));
     };
     ItemRepository.prototype.retrieveItem = function (itemPos) {
         return this.items[itemPos];
